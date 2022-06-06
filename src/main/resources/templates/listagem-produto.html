@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Produtos Agrícolas</title>
+</head>
+
+<body>
+
+	<!--Usando thymeleaf-->
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Código</th>
+				<th>Nome</th>
+				<th>Categoria</th>
+				<th>Culturas</th>
+				<th>Quantidade</th>
+			</tr>
+		</thead>
+		<tbody>
+		<!--Usando for para percorrer todos os produtos cadastrados -->
+		<tr th:each = "produto: ${listaProdutos}">
+			<td th:text="${produto.codigo}"></td>
+			<td th:text="${produto.nome}"></td>
+			<td th:text="${produto.categoria}"></td>
+			<td th:text="${produto.culturas}"></td>
+			<td th:text="${produto.quantidade}"></td>
+			<td> <a th:href="@{/produto/excluir/{codigo}(codigo = ${produto.codigo})}" class="btn btn-danger"> Excluir </a></td>
+		</tr>
+		</tbody>
+	</table>
+	
+
+
+<script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
